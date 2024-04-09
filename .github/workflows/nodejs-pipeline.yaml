@@ -16,5 +16,14 @@ jobs:
           
       - name: Echo DOCKER_USERNAME
         run: echo ${{ secrets.DOCKER_USERNAME }}
+
+      - name: Docker Build
+        run: echo ${{ secrets.DOCKER_USERNAME }}/nodejs-image:latest | docker build -t $(cat) .
+          
+      - name: Docker Images List
+        run: docker images
+
+      - name: Docker Push
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/nodejs-image:latest
         
         
