@@ -18,12 +18,12 @@ jobs:
         run: echo "DOCKER_USERNAME:${{ secrets.DOCKER_USERNAME }}"
       
       - name: Docker Build
-        run: |
-          echo ${{ secrets.DOCKER_USERNAME }}/nodejs-image:latest
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/nodejs-image:latest .
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: docker build -t ${{ env.DOCKER_USERNAME }}/nodejs-image:latest .
 
       - name: Docker Images List
         run: docker images
 
       - name: Docker Push
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/nodejs-image:latest
+        run: docker push ${{ env.DOCKER_USERNAME }}/nodejs-image:latest
