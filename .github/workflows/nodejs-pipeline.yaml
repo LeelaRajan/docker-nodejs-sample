@@ -21,4 +21,4 @@ jobs:
         run: docker images
 
       - name: Docker Push
-        run: docker push leelavathi.rajan@gmail.comn/nodejs-image:1.0
+        run: docker push leelavathi.rajan@gmail.com/nodejs-image:1.0
