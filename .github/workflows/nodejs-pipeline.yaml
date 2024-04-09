@@ -21,4 +21,4 @@ jobs:
         run: docker images
 
       - name: Docker Push
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/node-image:latest
+        run: docker push node-image:latest
